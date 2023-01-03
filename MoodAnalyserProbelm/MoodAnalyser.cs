@@ -10,8 +10,12 @@
 
         public string MoodAnalyse()
         {
-            if (!string.IsNullOrEmpty(message))
+            try
             {
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MESSAGE, "Mood Should Not be Empty");
+                }
                 if (message.Contains("Sad") || message.Contains("sad"))
                 {
                     return "Sad";
@@ -21,9 +25,9 @@
                     return "Happy";
                 }
             }
-            else
+            catch (NullReferenceException)
             {
-                throw new MoodAnalyserException("Getting null Value");
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MESSAGE, "Mood Should Not be null");
             }
         }
     }

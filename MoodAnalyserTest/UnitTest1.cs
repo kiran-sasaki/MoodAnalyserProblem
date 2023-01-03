@@ -36,5 +36,35 @@ namespace MoodAnalyserTest
                 Console.WriteLine(e.Message);
             }
         }
+        [TestMethod]
+        //UC3.1
+        public void given_Empty_Mood_Should_Throw_MoodAnalyserCustomException_Indocating_NullMood()
+        {
+            try
+            {
+                string message = null;
+                MoodAnalyser analyser = new MoodAnalyser(message);
+                string mood = analyser.MoodAnalyse();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        //3.2
+        [TestMethod]
+        public void given_Empty_Mood_Should_Throw_MoodAnalyserCustomException_Indocating_Empty_Mood()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyser analyser = new MoodAnalyser(message);
+                string mood = analyser.MoodAnalyse();
+            }
+            catch (MoodAnalyserException e)
+            {
+                Console.WriteLine("Mood should not be Empty", e.Message);
+            }
+        }
     }
 }
