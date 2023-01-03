@@ -21,5 +21,20 @@ namespace MoodAnalyserTest
             string message = analyser.MoodAnalyse();
             Assert.AreEqual(message, "Happy");
         }
+        [TestMethod]
+        //UC2.1
+        public void GivenNullMessageShouldReturnHappy()
+        {
+            MoodAnalyser analyser = new MoodAnalyser(null);
+            try
+            {
+                string message = analyser.MoodAnalyse();
+                Assert.AreEqual(message, "Happy");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
