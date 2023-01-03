@@ -9,14 +9,16 @@ namespace MoodAnalyserTest
         //UC1.1
         public void SadMoodShouldReturnSad()
         {
-            string message = MoodAnalyser.MoodAnalyse("Sad");
+            MoodAnalyser analyser = new MoodAnalyser("Sad");
+            string message = analyser.MoodAnalyse();
             Assert.AreEqual(message, "Sad");
         }
         [TestMethod]
         //UC1.2
         public void AnyMoodShouldReturnHappy()
         {
-            string message = MoodAnalyser.MoodAnalyse("I am in Any Mood");
+            MoodAnalyser analyser = new MoodAnalyser("I am in Any Mood");
+            string message = analyser.MoodAnalyse();
             Assert.AreEqual(message, "Happy");
         }
     }
