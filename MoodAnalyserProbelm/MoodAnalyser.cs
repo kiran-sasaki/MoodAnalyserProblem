@@ -2,7 +2,13 @@
 {
     public class MoodAnalyser
     {
-        public static string MoodAnalyse(string message)
+        public string message;
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+
+        public string MoodAnalyse()
         {
             if (message.Contains("Sad") || message.Contains("sad"))
             {
