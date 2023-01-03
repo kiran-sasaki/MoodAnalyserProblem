@@ -2,9 +2,16 @@
 {
     public class MoodAnalyser
     {
-        public void AnalyseMood()
+        public static string MoodAnalyse(string message)
         {
-            Console.WriteLine("Welcome to Mood Analyser Problem");
+            if (message.Contains("Sad") || message.Contains("sad"))
+            {
+                return "Sad";
+            }
+            else
+            {
+                return "Happy";
+            }
         }
     }
 }
