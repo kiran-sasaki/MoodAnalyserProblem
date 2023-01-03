@@ -10,13 +10,20 @@
 
         public string MoodAnalyse()
         {
-            if (message.Contains("Sad") || message.Contains("sad"))
+            if (!string.IsNullOrEmpty(message))
             {
-                return "Sad";
+                if (message.Contains("Sad") || message.Contains("sad"))
+                {
+                    return "Sad";
+                }
+                else
+                {
+                    return "Happy";
+                }
             }
             else
             {
-                return "Happy";
+                throw new MoodAnalyserException("Getting null Value");
             }
         }
     }
