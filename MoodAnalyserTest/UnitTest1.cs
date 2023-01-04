@@ -38,7 +38,7 @@ namespace MoodAnalyserTest
         }
         [TestMethod]
         //UC3.1
-        public void given_Empty_Mood_Should_Throw_MoodAnalyserCustomException_Indocating_NullMood()
+        public void givenEmptyMoodShouldThrowMoodAnalyserCustomExceptionIndicatingNullMood()
         {
             try
             {
@@ -53,7 +53,7 @@ namespace MoodAnalyserTest
         }
         //3.2
         [TestMethod]
-        public void given_Empty_Mood_Should_Throw_MoodAnalyserCustomException_Indocating_Empty_Mood()
+        public void GivenEmptyMoodShouldThrowMoodAnalyserCustomExceptionIndicatingEmptyMood()
         {
             try
             {
@@ -68,7 +68,7 @@ namespace MoodAnalyserTest
         }
         ////UC4.1
         //[TestMethod]
-        //public void Given_MoodAnalyser_ClassName_Should_Return_MoodAnalyser_Object()
+        //public void GivenMoodAnalyserClassNameShouldReturnMoodAnalyser_Object()
         //{
         //    object expected = new MoodAnalyser();
         //    object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyserProbelm.MoodAnalyser", "MoodAnalyser");
@@ -76,7 +76,7 @@ namespace MoodAnalyserTest
         //}
         ////UC4.2
         //[TestMethod]
-        //public void Given_MoodAnalyser_ClassName_ImproperShould_Throw_MoodAnalyserException()
+        //public void GivenMoodAnalyserClassNameImproperShouldThrowMoodAnalyserException()
         //{
         //    try
         //    {
@@ -91,7 +91,7 @@ namespace MoodAnalyserTest
         //}
         ////UC4.3
         //[TestMethod]
-        //public void Given_MoodAnalyser_Constructor_Name_Improper_Should_Throw_MoodAnalyserException()
+        //public void GivenMoodAnalyserConstructorNameImproperShouldThrowMoodAnalyserException()
         //{
         //    try
         //    {
@@ -106,7 +106,7 @@ namespace MoodAnalyserTest
         //}
         //UC5.1
         [TestMethod]
-        public void Given_MoodAnalyser_Class_Name_Should_Return_MoodAnalyser_Object_Using_Parameeterized_ConstrctrutorImproper()
+        public void GivenMoodAnalyserClassNameShouldReturnMoodAnalyserObjectUsingParameeterizedConstrctrutorImproper()
         {
             try
             {
@@ -121,7 +121,7 @@ namespace MoodAnalyserTest
         }
         //UC5.2
         [TestMethod]
-        public void Given_MoodAnalyser_Class_Name_If_Improper_Should_Throw_MoodAnalyserException()
+        public void GivenMoodAnalyserClassNameIfImproperShouldThrowMoodAnalyserException()
         {
             try
             {
@@ -136,7 +136,7 @@ namespace MoodAnalyserTest
         }
         //UC5.3
         [TestMethod]
-        public void Given_MoodAnalyser_Method_Name_If_Improper_Should_Throw_MoodAnalyserException()
+        public void GivenMoodAnalyserMethodNameIfImproperShouldThrowMoodAnalyserException()
         {
             try
             {
@@ -148,6 +148,22 @@ namespace MoodAnalyserTest
             {
                 Console.WriteLine(e.Message);
             }
+        }
+        //UC6.1
+        [TestMethod]
+        public void GivenHappyShouldReturnHappy()
+        {
+            string expected = "Happy";
+            string mood = MoodAnalyserFactory.InvokedAnalyseMood("Happy", "MoodAnalyse");
+            Assert.AreEqual(expected, mood);
+        }
+        //UC6.2
+        [TestMethod]
+        public void GivenHappyMessageWhenImproperMethodShouldThrowMoodAnalysisException()
+        {
+            string expected = "Method is not found";
+            string mood = MoodAnalyserFactory.InvokedAnalyseMood("Happy", "Analyse");
+            Assert.AreEqual(expected, mood);
         }
     }
 }
